@@ -211,10 +211,9 @@ def main():
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
         for beam in beams:
+            beam.update(screen)
             if check_bound(beam.rct) != (True, True):
-                del beams[j]
-            else:
-                beam.update(screen)
+                beams.pop(0)
         for bomb in bombs:
             bomb.update(screen)
         scr.update(screen)
