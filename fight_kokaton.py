@@ -159,7 +159,9 @@ class Score:
         引数 screen：画面Surface
         """
         self.img = self.fonto.render(f"スコア：{self.scr}", 0, (0, 0, 255))
-        screen.blit(self.img, [100, 600])
+        self.rct = self.img.get_rect()
+        self.rct.center = 100, HEIGHT-50
+        screen.blit(self.img, self.rct)
 
 
 def main():
